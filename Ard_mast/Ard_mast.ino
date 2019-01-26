@@ -29,8 +29,8 @@
   //#define WIFI_SSID "leelee"
   //#define WIFI_PASSWORD "k12345678"
   //#define 
-  #define WIFI_SSID "leelee"
-  #define WIFI_PASSWORD "k12345678"
+  #define WIFI_SSID "D-Link_DIR-612"
+  #define WIFI_PASSWORD "98765432"
 //standard time setting
   const char* ntpServer = "pool.ntp.org";
   const long  gmtOffset_sec = 8*60*60;
@@ -257,7 +257,7 @@ void sit_check(){
       endTimePath += String("/");
       String useTimePath = String("PJIOT/toilet") + UID + String("/") + (toilet_dt_count * 3);
       useTimePath += String("/");
-      toilet_dt_count++;
+      //toilet_dt_count++;
       Firebase.setInt(countTimePath, toilet_dt_count);
     //計算使用時間
       String useTimeStamp = genUseStamp(start_time_info, end_time_info);
@@ -459,7 +459,7 @@ void loop() {
         checker.after(500, stand_event);
       }else{stand_event();}
   }
-  if(!post_sit && cur_sit && device_state == 2 && device_able == 1){
+  if(!post_weight && cur_weight && device_state == 2 && device_able == 1){
       if(device_able == 0){
         checker.after(500, sit_event);
       }else{sit_event();}
